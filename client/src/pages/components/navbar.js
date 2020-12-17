@@ -31,11 +31,11 @@ export default function NavBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Eban's PORTFOLIO
+            Eban's Google Books
           </Typography>
           <Button component={Link} to='/' color="inherit">Main Page</Button>
-          <Button component={Link} to='/aboutMe' color="inherit">My Books</Button>
-          <Button component={Link} to='/contactMe' color="inherit">Liked Books</Button>
+          <Button component={Link} to='/mybooks' color="inherit">My Books</Button>
+          <Button component={Link} to='/likedbooks' color="inherit">Liked Books</Button>
         </Toolbar>
       </AppBar>
     </div>

@@ -1,28 +1,27 @@
 import React from 'react';
-import Books from '../../../model/booksOrm';
+import { useState, useEffect } from 'react';
 import API from '../utils/api';
 import MyCards from './components/Book Cards/myCards'
-import Paper from 'mat'
 
 const MyBooks = () =>{
+	let [ books, setBooks ] = useState()
 
-	const books = API.getMyBooks
+	useEffect(() => {
+		API.getMyBooks().then(({data}) => setBooks(data));
+	}, []);
+
+	console.log(books)
 	
 	const renderMyCards = () => {
 		return books.map((books) => {
 			return <MyCards
-			key={books.id}
-			key={books.title}
-			key={books.}
-			key={books.}
-			key={books.} />
-
-		})
+			key={books.id} />
+		});
 	}
 	
-	const deleteCard = () => {
-		const myBooks = API.getMyBooks
-	}
+	// const deleteCard = () => {
+	// 	const myBooks = API.getMyBooks
+	// }
 
 	return (
 		<div>

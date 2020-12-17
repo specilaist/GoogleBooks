@@ -1,13 +1,7 @@
-import Axios from "axios";
-import react from "react";
-import { useState, setState } from "react";
+import React from "react";
 import "./style.css";
-import API from '../../../utils/api';
 
 function BookCards(props) {
-	const deleteCard = () => {
-		const myBooks = API.getMyBooks
-	}
 
   return (
     <div className="card">
@@ -33,7 +27,7 @@ function BookCards(props) {
           </li>
         </ul>
       </div>
-      <span className="delete" onClick={}>𝘅</span>
+      {/* <span className="delete" onClick={deleteMyCard}>𝘅</span> */}
     </div>
   );
 }

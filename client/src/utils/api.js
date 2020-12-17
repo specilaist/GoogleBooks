@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 export default {
-	getSearched: function(){
-		return axios.get('/')
+	getSearched: function(search){
+		console.log(search)
+		return axios.get(`/`)
 	},
 	getLiked: function(){
 		return axios.get('/likedbooks')

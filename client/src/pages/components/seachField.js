@@ -1,6 +1,10 @@
-import react from 'react';
-
+import React from 'react';
+import { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import axios from 'axios';
+import API from '../../utils/api';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,11 +17,44 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SearchField() {
-  const classes = useStyles();
+	const classes = useStyles();
+	
+	const [ search, setSearch ] = useState('');
 
+	const handleChange = (event) => {
+		setSearch(event.target.value);
+	}
+
+
+	const handleSearch = async (event) => {
+		// event.preventDefault();
+		// console.log(search);
+		API.getSearched(search)
+		// await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
+			.then((data)=> {console.log('this is the front end', data)})
+			.catch(e => console.log(e));
+	}
+
+	// useEffect(
+
+	// )
+
+	
 	return(
-		<div>
-			
-		</div>
+		<Card>
+			<p className="">
+				<h2>Select A Book To Search:</h2>
+			</p>
+			<TextField className=""
+			id="outlined-search" 
+			label="Search field" 
+			type="search"
+			value={search}
+			variant="outlined"
+			onChange={handleChange}/>
+			<Button className="" variant="contained" color="primary" onClick={handleSearch}>
+  			Primary
+			</Button>
+		</Card>
 	)
-}
+};

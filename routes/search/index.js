@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
-const { searchBooks } = require('../../controllers/apiController');
+const API = require('../../controllers/apiController');
 
 router.route('/')
-	.get(searchBooks)
+	.get(API.searchBooks)
 
 module.exports = router

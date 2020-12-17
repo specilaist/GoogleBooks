@@ -1,17 +1,16 @@
 const axios = require('axios');
+const { response } = require('express');
 
 const { Books } = require('../model');
 
 module.exports = {
 	searchBooks: async (req, res) => {
-		try {
-			console.log(req);
-			let searchedBooks = axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
-			return res.json(searchedBooks)
-		} catch (e) {
-			console.log(e)
-			throw new Error(e)
-		}
+		console.log('this is the searchBooks controller', req);
+		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${req}`)
+			.then(response => {
+				res.json(response)
+			})
+			.catch(e => console.log(e))
 	},
 	findLikedBooks: async (req, res) => {
 		try {

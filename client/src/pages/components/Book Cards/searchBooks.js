@@ -1,8 +1,5 @@
-import Axios from "axios";
-import react from "react";
-import { useState, setState } from "react";
+import React from "react";
 import "./style.css";
-import API from "../../../utils/api";
 
 function SearchCards(props) {
   return (
