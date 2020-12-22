@@ -32,17 +32,9 @@ export default function SearchField() {
 		// console.log(search);
 		// API.getSearched(search)
 		await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
-			.then((results =>
-				results.data.items.filter(
-				  result =>
-				    result.volumeInfo.title &&
-				    result.volumeInfo.infoLink &&
-				    result.volumeInfo.authors &&
-				    result.volumeInfo.description &&
-				    result.volumeInfo.imageLinks &&
-				    result.volumeInfo.imageLinks.thumbnail
-				)
-			))
+			.then((response)=> {
+				const bookList = response.data.items
+				console.log('this is the front end', bookList)})
 			.catch(e => console.log(e));
 	}
 

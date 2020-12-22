@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
 
-mongoose.connect(process.env.MONGODB_URI,  {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Eban:tE5d3dEgqYhlxpG6@cluster0.dihjf.mongodb.net/googleBooks?retryWrites=true&w=majority',  {
   useNewUrlParser: true,
 	useUnifiedTopology: true
 })
