@@ -20,18 +20,29 @@ export default function SearchField() {
 	const classes = useStyles();
 	
 	const [ search, setSearch ] = useState('');
+	const [Searched, setSearched] = useState('');
 
 	const handleChange = (event) => {
 		setSearch(event.target.value);
 	}
 
 
-	const handleSearch = async (event) => {
+	const handleSearch = async () => {
 		// event.preventDefault();
 		// console.log(search);
-		API.getSearched(search)
-		// await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
-			.then((data)=> {console.log('this is the front end', data)})
+		// API.getSearched(search)
+		await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
+			.then((results =>
+				results.data.items.filter(
+				  result =>
+				    result.volumeInfo.title &&
+				    result.volumeInfo.infoLink &&
+				    result.volumeInfo.authors &&
+				    result.volumeInfo.description &&
+				    result.volumeInfo.imageLinks &&
+				    result.volumeInfo.imageLinks.thumbnail
+				)
+			))
 			.catch(e => console.log(e));
 	}
 
@@ -53,7 +64,7 @@ export default function SearchField() {
 			variant="outlined"
 			onChange={handleChange}/>
 			<Button className="" variant="contained" color="primary" onClick={handleSearch}>
-  			Primary
+  				Submit
 			</Button>
 		</Card>
 	)

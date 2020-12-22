@@ -27,7 +27,7 @@ function BookCards(props) {
           </li>
         </ul>
       </div>
-      {/* <span className="delete" onClick={deleteMyCard}>𝘅</span> */}
+      <span className="delete" onClick={props.deleteMyCard}>𝘅</span>
     </div>
   );
 }

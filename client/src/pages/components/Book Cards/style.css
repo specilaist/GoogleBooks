@@ -10,16 +10,13 @@
       text-align: left;
     }
     
-    .card > .img-container {
+    /* .card > .img-container {
       flex: auto;
       height: 60%;
       overflow: hidden;
       text-align: center;
       background:#6CADDC;
-    }
-    .card > .img-container > img {
-      width: 60%
-    }
+    } */
     
     .card > .content {
       padding-left: 1rem;
